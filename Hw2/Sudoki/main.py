@@ -11,7 +11,7 @@ def printing(arr):
 # Checks whether it will be
 # legal to assign num to the
 # given row, col
-def isSafe(grid, row, col, num):
+def isValidMove(grid, row, col, num):
    
     # Check if we find the same num
     # in the similar row , we
@@ -53,7 +53,7 @@ def solveSudoku(grid, row, col):
     if (row == N - 1 and col == N):
         return True
        
-    # Check if column value  becomes 9 ,
+    # Check if column value becomes 9 ,
     # we move to next row and
     # column start from 0
     if col == N:
@@ -71,7 +71,7 @@ def solveSudoku(grid, row, col):
         # the num (1-9)  in the
         # given row ,col  ->we
         # move to next column
-        if isSafe(grid, row, col, num):
+        if isValidMove(grid, row, col, num):
            
             # Assigning the num in
             # the current (row,col)
