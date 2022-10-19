@@ -153,9 +153,6 @@ class NonogramSolver(object):
 		self.marks = []
 		with open(input_file_path, 'r') as f:
 			self.marks = json.load(f)
-		# self._verbose = False
-		# self.__print(self.marks)
-
 		self.RC = len(self.marks['r'])
 		self.CC = len(self.marks['c'])
 
@@ -172,13 +169,13 @@ class NonogramSolver(object):
 		K = N - sum(input_array)
 		res_ar = False
 		for comb in itertools.combinations(range(0, K+1), len(input_array)):
-			combination_array = [0] + list(comb) + [K] # combination position array
-			white_array = [combination_array[i+1]-combination_array[i] for i in range(len(combination_array)-1)] # zero count array
+			combination_array = [0] + list(comb) + [K]
+			white_array = [combination_array[i+1]-combination_array[i] for i in range(len(combination_array)-1)]
 
-			white_array = [[2]*x for x in white_array] # white int array
-			b_ar = [[1]*x for x in input_array] # black int array
+			white_array = [[2]*x for x in white_array]
+			b_ar = [[1]*x for x in input_array]
 
-			for i,v in enumerate(b_ar): # merge two string arrays to generate possible placement
+			for i,v in enumerate(b_ar):
 				white_array.insert(2*i+1, v)
 
 			res = [x for r in white_array for x in r]
@@ -217,3 +214,4 @@ if __name__ == '__main__':
 	nono_solution = NonogramSolver(args.file)
 	nono_solution.solve()
 	print(nono_solution)
+
