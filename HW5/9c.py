@@ -1,6 +1,5 @@
 from pgmpy.models import BayesianNetwork
 from pgmpy.inference import VariableElimination
-from pgmpy.inference.EliminationOrder import WeightedMinFill
 from pgmpy.factors.discrete import TabularCPD
 
 
